@@ -1,0 +1,24 @@
+[user]
+	name = "Chun Yang"
+	email = "Chuck.Yang@gmail.com"
+[alias]
+    br = branch
+    ci = commit
+	co = checkout
+    df = diff
+    lg = log -p
+    st = status
+[color]
+    ui = true
+[core]
+	excludesfile = ~/.gitignore
+	editor = vim
+	autocrlf = input
+[apply]
+	whitespace = nowarn
+[format]
+	pretty = %C(yellow)%h%Creset %s %C(red)(%an, %cr)%Creset
+[push]
+  default = simple
+[init]
+	templatedir = ~/.git_template
