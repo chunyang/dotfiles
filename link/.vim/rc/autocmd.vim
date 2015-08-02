@@ -7,6 +7,7 @@ augroup vimrc
   au BufNewFile,BufRead *.S     setfiletype gas
   au BufNewFile,BufRead *.asm   setfiletype lc3
   au BufNewFile,BufRead *.json  setfiletype javascript
+  au BufNewFile,BufRead *.md    setfiletype markdown
 
   " 2-space tab for certain filetypes
   au FileType javascript,html,css,ruby,vim  call s:SetTabSize(2)

@@ -1,5 +1,5 @@
 # Get git prompt info
-local g="$(git rev-parse --git-dir 2>/dev/null)"
+local g="$(timeout 5 git rev-parse --git-dir 2>/dev/null)"
 if [ $? -ne 0 ] || [ -z "$g" ]; then
   return
 fi

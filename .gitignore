@@ -1,8 +1,14 @@
-*.pyc
 /backups
 /caches
+
+/link/.vim/.netrwhist
+/link/.vim/.VimballRecord
+/link/.vim/bundle/*
 
 /link/.ssh/authorized_keys
 /link/.ssh/id_*
 /link/.ssh/*.pem
 /link/.ssh/known_hosts
+
+*.pyc
+*.zwc

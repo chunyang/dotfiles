@@ -11,10 +11,14 @@ set showcmd         " display incomplete commands
 set confirm
 set autoread
 
-if has("statusline")
+if has('statusline')
   set laststatus=2    " Always display the status line
-  "set statusline=%f\ %m%r%h%w%y%=%3l,%3c\ \ %P
-  set statusline=%f\ %m%r%h%w%y%=%{fugitive#statusline()}\ %3l,%3c\ \ %P
+
+  if exists('*fugitive#statusline')
+    set statusline=%f\ %m%r%h%w%y%=%{fugitive#statusline()}\ %3l,%3c\ \ %P
+  else
+    set statusline=%f\ %m%r%h%w%y%=%3l,%3c\ \ %P
+  endif
 endif
 
 set incsearch       " do incremental searching

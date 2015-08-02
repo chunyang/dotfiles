@@ -9,8 +9,8 @@
 set nocompatible
 
 " Load bundles and bundle options
-if filereadable(expand($HOME) . "/.vim/rc/bundles.vim")
-  source $HOME/.vim/rc/bundles.vim
+if filereadable(expand($HOME) . "/.vim/rc/vundle.vim")
+  source $HOME/.vim/rc/vundle.vim
 endif
 
 " Load settings
