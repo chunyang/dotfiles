@@ -1,6 +1,7 @@
 #!/bin/bash
 
 sudo apt-get install \
+    autoconf \
     bsdtar \
     build-essential \
     clang \
@@ -12,8 +13,10 @@ sudo apt-get install \
     git \
     imagemagick \
     iproute2 \
+    libarchive-dev \
     libclang-dev \
     libpython-dev \
+    libsensors4-dev \
     libxft-dev \
     libxinerama-dev \
     man-db \
