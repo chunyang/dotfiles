@@ -1,0 +1,35 @@
+#!/bin/bash
+
+sudo apt-get install \
+    bsdtar \
+    build-essential \
+    clang \
+    cmake \
+    dnsutils \
+    exuberant-ctags \
+    feh \
+    fonts-roboto \
+    git \
+    imagemagick \
+    iproute2 \
+    libclang-dev \
+    libpython-dev \
+    libxft-dev \
+    libxinerama-dev \
+    man-db \
+    manpages \
+    manpages-dev \
+    manpages-posix-dev \
+    mlocate \
+    openconnect \
+    psmisc \
+    rxvt-unicode-256color \
+    suckless-tools \
+    tmux \
+    tree \
+    ttf-mscorefonts-installer \
+    units \
+    vim \
+    xfonts-terminus \
+    xz-utils \
+    zsh
