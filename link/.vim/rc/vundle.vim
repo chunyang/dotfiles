@@ -8,6 +8,7 @@ if filereadable(expand($HOME) . '/.vim/bundle/Vundle.vim/autoload/vundle.vim')
   call vundle#begin()
 
   Plugin 'VundleVim/Vundle.vim'
+  Plugin 'derekwyatt/vim-scala'
   Plugin 'scrooloose/nerdcommenter'
   Plugin 'scrooloose/nerdtree'
   Plugin 'Raimondi/delimitMate'
