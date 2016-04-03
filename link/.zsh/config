@@ -51,9 +51,6 @@ setopt NO_CHECK_JOBS
 setopt LOCAL_OPTIONS
 setopt LOCAL_TRAPS
 
-# Verify history expansions before executing
-setopt HIST_VERIFY
-
 # No beep
 unsetopt BEEP
 
