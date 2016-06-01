@@ -15,6 +15,7 @@ fi
 
 # History options
 setopt HIST_IGNORE_ALL_DUPS     # Ignore duplicates
+setopt HIST_IGNORE_SPACE        # Don't record commands beginning with space
 setopt HIST_REDUCE_BLANKS       # Reduce blanks
 setopt EXTENDED_HISTORY         # Save timestamps with history
 setopt INC_APPEND_HISTORY_TIME  # Append commands to history after completion
