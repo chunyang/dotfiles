@@ -1,0 +1,24 @@
+# Set wallpaper
+# jpg is horizontal, png is vertical
+# exec feh --bg-fill /home/cyang/media/wallpapers/candh2.jpg \
+#     --bg-fill /home/cyang/media/wallpapers/candh2.png &
+# exec feh --bg-fill /home/cyang/media/wallpapers/candh2.png \
+#     --bg-fill /home/cyang/media/wallpapers/candh2.jpg &
+exec feh --bg-fill /home/cyang/media/wallpapers/candh2.jpg &
+
+# Start screensaver
+exec /usr/bin/xscreensaver -no-splash &
+
+# Start dwmstatus
+exec /usr/local/bin/dwmstatus &
+
+# Set keyboard rate
+exec xset r rate 330 45 &
+
+# Set up fcitx
+export GTK_IM_MODULE=fcitx
+export XMODIFIERS="@im=fcitx"
+exec fcitx -r &
+
+# Don't use dbus accessibility bus
+export NO_AT_BRIDGE=1
