@@ -21,8 +21,8 @@ setopt EXTENDED_HISTORY         # Save timestamps with history
 setopt INC_APPEND_HISTORY_TIME  # Append commands to history after completion
 setopt HIST_VERIFY              # Verify history expansions before executing
 HISTFILE=~/.zsh_history
-HISTSIZE=8000
-SAVEHIST=8000
+HISTSIZE=32000
+SAVEHIST=32000
 
 # Suggestions to correct spelling
 setopt CORRECT
