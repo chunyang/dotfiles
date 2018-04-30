@@ -44,6 +44,9 @@ augroup vimrc
   " Automatically load .vimrc source when saved
   au BufWritePost .vimrc source $MYVIMRC
 
+  " Remove trailing whitespace before saving
+  au FileType python autocmd BufWritePre * :call s:TrimWhitespace()
+
   function! s:SetTabSize(size)
     let &tabstop = a:size
     let &softtabstop = a:size
@@ -54,6 +57,12 @@ augroup vimrc
     if line("'\"") > 0 && line("'\"") <= line("$")
       exe "normal g`\""
     endif
+  endfunction
+
+  function! s:TrimWhitespace()
+    let l:save = winsaveview()
+    %s/\s\+$//e
+    call winrestview(l:save)
   endfunction
 
   " Automatically load .vimrc when vim files edited
