@@ -28,7 +28,7 @@ set smartcase
 
 set nojoinspaces
 set nowrap          " Don't soft-wrap text
-set textwidth=78
+set textwidth=80
 set formatoptions=crq2lj
 "set formatoptions-=ot
 
@@ -63,8 +63,7 @@ if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
 
   " Highlight long lines
   if exists('+colorcolumn')
-    set colorcolumn=+1,+2,+3,+4,+5,+6,+7,+8
-    highlight ColorColumn ctermfg=darkgrey ctermbg=none
+    set colorcolumn=+1,+2
   endif
 
   " Set color scheme
