@@ -82,6 +82,10 @@ if has('mouse')
   set mouse=a
 endif
 
+if $TERM =~ "rxvt-unicode"
+  set ttymouse=urxvt
+endif
+
 let g:tagbar_type_go = {
 	\ 'ctagstype' : 'go',
 	\ 'kinds'     : [

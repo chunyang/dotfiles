@@ -33,13 +33,9 @@ if filereadable(expand($HOME) . '/.vim/bundle/Vundle.vim/autoload/vundle.vim')
 
   " YouCompleteMe build instructions:
   " https://github.com/Valloric/YouCompleteMe
-  "   cd ~
-  "   mkdir ycm_build
-  "   cd ycm_build
-  "   cmake -G "Unix Makefiles" \
-  "     -DEXTERNAL_LIBCLANG_PATH=/usr/lib/libclang.so \
-  "     . ~/.vim/bundle/YouCompleteMe/cpp
-  "   make
+  "   cd ~/.vim/bundle/YouCompleteMe
+  "   ./install.py --go-completer --js-completer --clang-completer \
+  "     --system-libclang # if on Arch Linux
   "   vim (:PluginInstall!))
 
   call vundle#end()
