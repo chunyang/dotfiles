@@ -36,6 +36,11 @@ augroup vimrc
   " (happens when dropping a file on gvim).
   au BufReadPost * call s:JumpToLastPosition()
 
+  " Automatically reread files that have been changed outside of vim and not
+  " changed within vim.
+  " https://unix.stackexchange.com/a/383044
+  au FocusGained,BufEnter * :checktime
+
   " Automatically load .vimrc source when saved
   au BufWritePost .vimrc source $MYVIMRC
 
