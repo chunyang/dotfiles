@@ -8,28 +8,56 @@ if filereadable(expand($HOME) . '/.vim/bundle/Vundle.vim/autoload/vundle.vim')
   call vundle#begin()
 
   Plugin 'VundleVim/Vundle.vim'
-  Plugin 'derekwyatt/vim-scala'
+
+  " General
   Plugin 'scrooloose/nerdcommenter'
   Plugin 'scrooloose/nerdtree'
-  Plugin 'jiangmiao/auto-pairs'
   Plugin 'majutsushi/tagbar'
+  Plugin 'jiangmiao/auto-pairs'
   Plugin 'SirVer/ultisnips'
-  "Plugin 'honza/vim-snippets'
   Plugin 'tpope/vim-endwise'
-  Plugin 'tpope/vim-fugitive'
   Plugin 'tpope/vim-surround'
+  Plugin 'godlygeek/tabular'
+  Plugin 'Rename'
+  Plugin 'tmux-plugins/vim-tmux-focus-events'
+  Plugin 'Valloric/YouCompleteMe'
+  "Plugin 'honza/vim-snippets'
+  "Plugin 'Align'
+
+  " Git
+  Plugin 'tpope/vim-fugitive'
+
+  " C++
+  Plugin 'octol/vim-cpp-enhanced-highlight'
+
+  " Scala
+  " Plugin 'derekwyatt/vim-scala'
+
+  " Ruby
   "Plugin 'tpope/vim-cucumber'
   "Plugin 'tpope/vim-rails'
+
+  " Other
   "Plugin 'colorfulgrayscale/vim-arff'
-  Plugin 'godlygeek/tabular'
-  Plugin 'plasticboy/vim-markdown'  " Requires tabular
-  Plugin 'jQuery'
   "Plugin 'pig.vim'
-  Plugin 'Rename'
-  "Plugin 'Align'
   "Plugin 'javacomplete'
   "Plugin 'matrix.vim--Yang'
-  Plugin 'Valloric/YouCompleteMe'
+
+  " Markdown
+  Plugin 'plasticboy/vim-markdown'  " Requires tabular
+
+  " Postgres
+  Plugin 'lifepillar/pgsql.vim'
+
+  " Golang
+  Plugin 'fatih/vim-go'
+
+  " Javascript
+  "Plugin 'jQuery'
+  Plugin 'pangloss/vim-javascript'
+  Plugin 'mxw/vim-jsx'
+  Plugin 'flowtype/vim-flow'
+  Plugin 'styled-components/vim-styled-components'
 
   " YouCompleteMe build instructions:
   " https://github.com/Valloric/YouCompleteMe

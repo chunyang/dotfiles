@@ -124,4 +124,10 @@ let g:tagbar_type_make = {
 " html/js indent logging
 let g:js_indent_log = 0
 
+" vim-go highlighting additions
+let g:go_highlight_functions = 1
+let g:go_highlight_function_arguments = 1
+let g:go_highlight_methods = 1
 
+" CPP highlighting bugfix
+let c_no_curly_error=1
