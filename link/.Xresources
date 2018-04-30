@@ -8,7 +8,7 @@ urxvt.font:         xft:Terminus:size=10:antialias=false
 
 ! Scrolling and history
 urxvt.scrollBar:    false
-urxvt.saveLines:    2000
+urxvt.saveLines:    64000
 
 ! Don't scroll secondary buffer lines into scrollback buffer
 urxvt.secondaryScroll: false
