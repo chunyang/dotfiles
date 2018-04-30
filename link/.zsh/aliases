@@ -38,6 +38,9 @@ alias ysyu='yaourt -Syu'
 # add thousands separators to integers
 alias comma="ssed -R 's/\B(?=(\d{3})+(?!\d))/,/g'"
 
+# By default, format httpie output
+alias http='http --pretty=format'
+
 # git
 alias gl='git pull'
 alias gp='git push'
