@@ -12,6 +12,7 @@ augroup vimrc
   au BufNewFile,BufRead *.template  setfiletype json
   au BufNewFile,BufRead *.gradle    setfiletype groovy
   au BufNewFile,BufRead *.gradle    setlocal autoindent
+  au BufNewFile,BufRead [Dd]ockerfile,Dockerfile.*,*.Dockerfile set filetype=dockerfile
 
   " 2-space tab for certain filetypes
   au FileType javascript,html,css,ruby,vim  call s:SetTabSize(2)
