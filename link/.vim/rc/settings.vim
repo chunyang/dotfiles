@@ -82,16 +82,42 @@ if has('mouse')
   set mouse=a
 endif
 
-" Taglist plugin options
-let Tlist_Inc_Winwidth=0
-let TList_Exit_OnlyWindow=1
-let TList_Enable_Fold_Column=0
-let TList_Use_SingleClick=1
+let g:tagbar_type_go = {
+	\ 'ctagstype' : 'go',
+	\ 'kinds'     : [
+		\ 'p:package',
+		\ 'i:imports:1',
+		\ 'c:constants',
+		\ 'v:variables',
+		\ 't:types',
+		\ 'n:interfaces',
+		\ 'w:fields',
+		\ 'e:embedded',
+		\ 'm:methods',
+		\ 'r:constructor',
+		\ 'f:functions'
+	\ ],
+	\ 'sro' : '.',
+	\ 'kind2scope' : {
+		\ 't' : 'ctype',
+		\ 'n' : 'ntype'
+	\ },
+	\ 'scope2kind' : {
+		\ 'ctype' : 't',
+		\ 'ntype' : 'n'
+	\ },
+	\ 'ctagsbin'  : 'gotags',
+	\ 'ctagsargs' : '-sort -silent'
+\ }
+
+let g:tagbar_type_make = {
+  \ 'kinds':[
+    \ 'm:macros',
+    \ 't:targets'
+  \ ]
+\ }
 
 " html/js indent logging
 let g:js_indent_log = 0
 
-" delimitMate
-let g:delimitMate_expand_cr = 1
-let g:delimitMate_expand_space = 1
 

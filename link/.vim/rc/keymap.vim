@@ -26,10 +26,12 @@ nnoremap <S-Tab> :Tabularize /:\zs<CR>
 nnoremap <F5> :edit!<CR>
 " Re-hilight
 nnoremap <F6> :syntax sync fromstart<CR>
-" Toggle tag list
-nnoremap <F10> :TlistToggle<CR>
+
+nnoremap <F8> :NERDTreeFind<CR>
 " Toggle NERD tree
-nnoremap <F11> :NERDTreeToggle<CR>
+nnoremap <F10> :NERDTreeToggle<CR>
+" Toggle tag bar
+nnoremap <F11> :TagbarToggle<CR>
 " Toggle numbers
 nnoremap <F12> :set invnumber<CR>
 
