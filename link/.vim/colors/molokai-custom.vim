@@ -206,12 +206,12 @@ if &t_Co > 255
 
    hi Normal          ctermfg=252 ctermbg=none
 
-   " Use italics if supported
-   if &t_ZH  == '[3m'
-      hi Comment      ctermfg=59                cterm=italic
-   else
+   " " Use italics if supported
+   " if &t_ZH  == '[3m'
+   "    hi Comment      ctermfg=59                cterm=italic
+   " else
       hi Comment      ctermfg=59
-   endif
+   " endif
 
    hi CursorLine                  ctermbg=234   cterm=none
    hi CursorColumn                ctermbg=234
