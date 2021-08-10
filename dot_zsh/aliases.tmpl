@@ -1,0 +1,37 @@
+# vi
+alias vi='vim'
+alias view='vim -R'
+
+# ls
+{{ if eq .chezmoi.os "darwin" -}}
+    alias ls='ls -Gh'
+{{ else if eq .chezmoi.os "linux" -}}
+    alias ls='ls --color=auto --group-directories-first --human-readable'
+{{ end -}}
+alias ll='ls -l'
+alias la='ls -A'
+
+# dictionary
+alias def='define'
+alias thes='dict -d moby-thes'
+
+# grep
+alias grep='grep --color=auto'
+
+# tree
+alias tree='tree -ACL 1'
+
+# org
+alias org='cal -3 && echo "" && when'
+
+# pdfcat: usage: pdfcat -s OutputFile=outfile.pdf in1.pdf [...]
+alias pdfcat='gs -q -sPAPERSIZE=letter -dNOPAUSE -dBATCH -sDEVICE=pdfwrite'
+
+# pacman, yaourt
+alias ysyu='yaourt -Syu'
+
+# add thousands separators to integers
+alias comma="ssed -R 's/\B(?=(\d{3})+(?!\d))/,/g'"
+
+# By default, format httpie output
+alias http='http --pretty=format'

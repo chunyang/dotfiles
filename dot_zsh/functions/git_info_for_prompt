@@ -1,0 +1,80 @@
+# Get git prompt info
+if ! command -v git &>/dev/null; then
+    return
+fi
+
+if command -v timeout &>/dev/null; then
+  local g="$(timeout 5 git rev-parse --git-dir 2>/dev/null)"
+else
+  local g="$(git rev-parse --git-dir 2>/dev/null)"
+fi
+
+if [ $? -ne 0 ] || [ -z "$g" ]; then
+  return
+fi
+
+# Check if working tree is dirty
+local dirty
+git diff-index --quiet HEAD 2>/dev/null
+if [ $? -ne 0 ]; then
+  dirty=1
+else
+  dirty=0
+fi
+
+# Check if untracked files
+local u
+#if [[ -n $(git ls-files --exclude-standard --others 2>/dev/null) ]]; then
+if [[ -n $(git status --porcelain 2>/dev/null | grep "^??") ]]; then
+  u="+"
+else
+  u=""
+fi
+
+local r
+local b
+if [ -d "$g/../.dotest" ]
+then
+  if test -f "$g/../.dotest/rebasing"
+  then
+    r="|REBASE"
+  elif test -f "$g/../.dotest/applying"
+  then
+    r="|AM"
+  else
+    r="|AM/REBASE"
+  fi
+  b="$(git symbolic-ref HEAD 2>/dev/null)"
+elif [ -f "$g/.dotest-merge/interactive" ]
+then
+  r="|REBASE-i"
+  b="$(cat "$g/.dotest-merge/head-name")"
+elif [ -d "$g/.dotest-merge" ]
+then
+  r="|REBASE-m"
+  b="$(cat "$g/.dotest-merge/head-name")"
+elif [ -f "$g/MERGE_HEAD" ]
+then
+  r="|MERGING"
+  b="$(git symbolic-ref HEAD 2>/dev/null)"
+else
+  if [ -f "$g/BISECT_LOG" ]
+  then
+    r="|BISECTING"
+  fi
+  if ! b="$(git symbolic-ref HEAD 2>/dev/null)"
+  then
+    if ! b="tag: $(git describe --exact-match HEAD 2>/dev/null)"
+    then
+      b="$(cut -c1-7 "$g/HEAD")..."
+    fi
+  fi
+fi
+
+if [ -n "$1" ]; then
+  printf "$1" "${b##refs/heads/}$r"
+elif [ $dirty -eq 0 ]; then
+  echo " %{$fg_bold[green]%}${b##refs/heads/}$r$u%{$reset_color%}"
+else
+  echo " %{$fg_bold[red]%}${b##refs/heads/}$r$u%{$reset_color%}"
+fi

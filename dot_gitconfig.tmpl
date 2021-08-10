@@ -1,0 +1,42 @@
+[user]
+    name = {{ .name | quote }}
+    email = {{ .email | quote }}
+    signingkey = {{ .signingkey }}
+[alias]
+    br = branch
+    ci = commit
+    co = checkout
+    cp = cherry-pick
+    df = diff
+    lg = log -p
+    l5 = log -n5
+    rb = rebase
+    rbc = rebase --continue
+    st = status
+    lu = ls-files --others
+    lue = ls-files --others --exclude-standard
+    gr = log --graph --full-history --all --color --pretty=format:"%x1b[31m%h%x09%x1b[32m%d%x1b[0m%x20%s"
+[color]
+    ui = true
+[core]
+    excludesfile = ~/.gitignore
+    editor = vim
+    autocrlf = input
+    pager = less -XF --tabs=4
+[apply]
+    whitespace = nowarn
+[format]
+    pretty = %C(yellow)%h%Creset %s %C(red)(%an, %cr)%Creset
+# [merge]
+#     renameLimit = 10000
+[push]
+    default = simple
+[init]
+    templatedir = ~/.git_template
+[url "git@github.robot.car:"]
+    insteadOf = https://github.robot.car/
+[filter "lfs"]
+    process = git-lfs filter-process
+    required = true
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f

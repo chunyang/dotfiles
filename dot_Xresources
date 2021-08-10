@@ -1,0 +1,64 @@
+Xcursor.theme: ComixCursors-opaque-White-Small-Slim
+
+*newLoginCommand: lxdm -c USER_SWITCH
+
+! Font styles
+urxvt.font:         xft:Terminus:size=10:antialias=false
+! urxvt.italicFont:   xft:Consolas:size=13:antialias=true:italic
+
+! Scrolling and history
+urxvt.scrollBar:    false
+urxvt.saveLines:    64000
+
+! Do not scroll secondary buffer lines into scrollback buffer
+urxvt.secondaryScroll: false
+
+! Enable mousewheel via vtwheel extension
+urxvt.perl-ext-common: default,vtwheel
+
+! Delimiters for double-click word selection
+urxvt.cutchars: "\\`\"'&()*,:;<=>?@[]^{|}"
+
+! Set X11 urgent hint on bell
+urxvt*urgentOnBell: true
+
+! Disable ISO 14755 mode
+urxvt.iso14755: false
+
+! Scroll when output come but not when you go back in to the buffer
+! Scroll back to the end on key press or program stops running
+urxvt.scrollTtyOutput:      false
+urxvt.scrollWithBuffer:     true
+urxvt.scrollTtyKeypress:    true
+
+! Background transparency
+urxvt.transparent:  true
+urxvt.shading:      10
+
+! Colors
+urxvt.background:   #1a1a1a
+urxvt.foreground:   #e6e6e6
+! black + dark gray
+urxvt.color0:  #000000
+urxvt.color8:  #545454
+! dark red + red
+urxvt.color1:  #ff0000
+urxvt.color9:  #ff5757
+! dark green + green
+urxvt.color2:  #66ff00
+urxvt.color10: #9aff57
+! dark yellow + yellow
+urxvt.color3:  #ff6600
+urxvt.color11: #ffff00
+! dark blue + blue
+urxvt.color4:  #0066ff
+urxvt.color12: #579aff
+! dark magenta + magenta
+urxvt.color5:  #ff00ff
+urxvt.color13: #ff57ff
+! dark cyan + cyan
+urxvt.color6:  #00a8a8
+urxvt.color14: #00ffff
+! light gray + white
+urxvt.color7:  #a8a8a8
+urxvt.color15: #ffffff

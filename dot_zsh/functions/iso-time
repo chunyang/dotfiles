@@ -1,0 +1,4 @@
+for d in "$@"
+do
+    date --date="@$d" --iso-8601=seconds --utc
+done

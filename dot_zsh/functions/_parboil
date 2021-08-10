@@ -1,0 +1,69 @@
+#compdef parboil -p *parboil
+
+_parboil() {
+  local -a parboil_general_flags
+  local exe
+
+  if (( CURRENT > 2)); then
+    exe=${words[1]}
+    (( CURRENT-- ))
+    shift words
+    _call_function 1 _parboil_${words[1]}
+  else
+    _values "parboil command" \
+      "help[Display this help message]" \
+      "list[List benchmarks]" \
+      "describe[Show details on a benchmark]" \
+      "clean[Clean up generated files in a benchmark]" \
+      "compile[Compile a benchmark]" \
+      "run[Run a benchmark]"
+  fi
+}
+
+_list_benchmarks() {
+  _benchmarks=($($exe list | sed -e '1,/Benchmarks:/d'))
+  compadd "$@" -k _benchmarks
+}
+
+_list_versions() {
+  _versions=($($exe describe ${words[2]} | grep "Versions" | cut -d: -f2))
+  compadd "$@" -k _versions
+}
+
+_list_datasets() {
+  _datasets=($($exe describe ${words[2]} | grep "Data sets" | cut -d: -f2))
+  compadd "$@" -k _datasets
+}
+
+_parboil_help() {
+  _arguments \
+    "1: :(list describe clean compile run)"
+}
+
+_parboil_clean() {
+  _arguments \
+    "1: :_list_benchmarks" \
+    "2: :_list_versions"
+}
+
+_parboil_compile() {
+  _arguments \
+    "1: :_list_benchmarks" \
+    "2: :_list_versions"
+}
+
+_parboil_describe() {
+  _arguments \
+    "1: :_list_benchmarks"
+}
+
+_parboil_run() {
+  _arguments \
+    "1: :_list_benchmarks" \
+    "2: :_list_versions" \
+    "3: :_list_datasets" \
+}
+
+_parboil "$@"
+
+# vim: set sw=2 ts=2 sts=2 :

@@ -1,0 +1,133 @@
+# .zshrc
+
+autoload -U is-at-least compinit colors
+colors
+
+# Set ZSH options =========================================
+# cd just by typing directory name
+setopt AUTO_CD
+
+if is-at-least 4.3.11; then
+    # make CD more posix compliant
+    setopt POSIX_CD
+fi
+
+# History options
+setopt HIST_IGNORE_ALL_DUPS     # Ignore duplicates
+setopt HIST_IGNORE_SPACE        # Don't record commands beginning with space
+setopt HIST_REDUCE_BLANKS       # Reduce blanks
+setopt EXTENDED_HISTORY         # Save timestamps with history
+setopt INC_APPEND_HISTORY_TIME  # Append commands to history after completion
+setopt HIST_EXPIRE_DUPS_FIRST   # Evict duplicate commands first
+setopt HIST_VERIFY              # Verify history expansions before executing
+HISTFILE=~/.zsh_history
+HISTSIZE=32000
+SAVEHIST=32000
+
+# Suggestions to correct spelling
+setopt CORRECT
+
+# Allow comments in interactive shell
+setopt INTERACTIVE_COMMENTS
+
+# Automatically list choices on an ambiguous completion
+setopt AUTO_LIST
+
+# Complete from both ends
+setopt COMPLETE_IN_WORD
+
+# Automatically use menu completion after second consecutive
+# request for completion
+setopt AUTO_MENU
+
+# Prompt substitution
+setopt PROMPT_SUBST
+setopt PROMPT_PERCENT
+
+# Don't generate an error if a pattern has no matches
+setopt NO_NOMATCH
+
+# Don't send HUP signals when shell exits, do not warn
+setopt NO_HUP
+setopt NO_CHECK_JOBS
+
+# Allow functions to have local options and traps
+setopt LOCAL_OPTIONS
+setopt LOCAL_TRAPS
+
+# No beep
+unsetopt BEEP
+
+# Prompt appearance
+#export PS1='[%{$fg_bold[blue]%}%n@%m %~%{$reset_color%}%{$(git_prompt_info)%}]%# '
+export PS1='[%{$fg[magenta]%}%n@%m %~%{$reset_color%}$(git_info_for_prompt)]%(60l.
+.)%# '
+#export PS1='[%{$fg_bold[blue]%}%n@%m %~%{$reset_color%}]%# '
+#export RPS1='%{$(git_prompt_info)%}'
+
+# Set favorite editor
+export EDITOR='vim'
+
+# Color in ri
+export RI='--format ansi'
+
+# Allow escapes in less
+export LESS='-R'
+
+# Set path
+typeset -U path
+path=($path)
+
+# Functions
+fpath=(~/.zsh/functions $fpath)
+autoload -U ~/.zsh/functions/*(:t)
+compinit
+
+# Misc options
+REPORTTIME=20 # print elapsed time when process tabkes more than 20 seconds
+
+# Emacs keybindings
+bindkey -e
+
+# Key mappings
+case "$TERM" in
+    screen-256color)
+        # Home, end, and delete keys
+        bindkey '[1~' beginning-of-line
+        bindkey '[4~' end-of-line
+        bindkey '[3~' delete-char
+        ;;
+    rxvt*)
+        # Home, end, and delete keys
+        bindkey '[7~' beginning-of-line
+        bindkey '[8~' end-of-line
+        bindkey '[3~' delete-char
+        ;;
+    linux*)
+        # Home, end, and delete keys
+        bindkey '[1~' beginning-of-line
+        bindkey '[4~' end-of-line
+        bindkey '[3~' delete-char
+        ;;
+    *)
+        # Home, end, and delete keys
+        bindkey 'OH' beginning-of-line
+        bindkey 'OF' end-of-line
+        bindkey '[3~' delete-char
+        ;;
+esac
+
+# Up/down does partial history searches
+# bindkey '[A' up-line-or-search
+# bindkey '[B' down-line-or-search
+
+# Shift-tab to reverse menu complete
+bindkey '[Z' reverse-menu-complete
+
+# F1 to open a new URxvt terminal in same directory
+bindkey -s '[11~' "(urxvt &) &>/dev/null \n"
+
+# Hilight menu completion selection
+zstyle ':completion:*' list-dirs-first yes=1
+zstyle ':completion:*' menu select=2
+zstyle ':completion:*' list-colors 'di=01;34'

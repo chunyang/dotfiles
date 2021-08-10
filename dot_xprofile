@@ -1,0 +1,11 @@
+# Set keyboard rate
+exec /usr/bin/xset r rate 330 45 &
+
+# Modify modifier keys
+exec /usr/bin/setxkbmap \
+    -layout us \
+    -option ctrl:swapcaps \
+    -option altwin:swap_alt_win &
+
+# Start screensaver
+exec /usr/bin/xscreensaver -no-splash &
