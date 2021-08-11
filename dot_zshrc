@@ -3,4 +3,7 @@
 . ~/.zsh/completion
 
 # use .localrc for settings specific to one system
-[[ -f ~/.localrc ]] && . ~/.localrc
+[ -f ~/.localrc ] && source ~/.localrc
+
+# FZF
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

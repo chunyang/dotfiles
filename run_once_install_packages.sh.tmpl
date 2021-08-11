@@ -1,0 +1,53 @@
+{{ if eq .chezmoi.osRelease.id "ubuntu" -}}
+#!/bin/sh
+sudo apt install \
+{{ if eq .chezmoi.osRelease.versionID "18.10" -}}
+    fzf \
+    ripgrep \
+{{ end -}}
+    autoconf \
+    bsdtar \
+    build-essential \
+    clang \
+    cmake \
+    dnsutils \
+    exuberant-ctags \
+    feh \
+    fonts-roboto \
+    git \
+    imagemagick \
+    iproute2 \
+    libarchive-dev \
+    libclang-dev \
+    libpython-dev \
+    libsensors4-dev \
+    libxft-dev \
+    libxinerama-dev \
+    man-db \
+    manpages \
+    manpages-dev \
+    manpages-posix-dev \
+    mlocate \
+    openconnect \
+    psmisc \
+    rxvt-unicode-256color \
+    suckless-tools \
+    tmux \
+    tree \
+    ttf-mscorefonts-installer \
+    units \
+    vim \
+    xfonts-terminus \
+    xz-utils \
+    zsh
+
+{{ if eq .chezmoi.osRelease.versionID "18.04" -}}
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+~/.fzf/install
+
+curl -L https://github.com/BurntSushi/ripgrep/releases/download/12.1.1/ripgrep_12.1.1_amd64.deb \
+    -o /tmp/ripgrep_12.1.1_amd64.deb
+sudo dpkg -i /tmp/ripgrep_12.1.1_amd64.deb
+{{ end -}}
+
+{{ end -}}
