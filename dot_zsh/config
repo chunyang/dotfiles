@@ -59,10 +59,8 @@ setopt LOCAL_TRAPS
 unsetopt BEEP
 
 # Prompt appearance
-#export PS1='[%{$fg_bold[blue]%}%n@%m %~%{$reset_color%}%{$(git_prompt_info)%}]%# '
 export PS1='[%{$fg[magenta]%}%n@%m %~%{$reset_color%}$(git_info_for_prompt)]%(60l.
 .)%# '
-#export PS1='[%{$fg_bold[blue]%}%n@%m %~%{$reset_color%}]%# '
 #export RPS1='%{$(git_prompt_info)%}'
 
 # Set favorite editor
