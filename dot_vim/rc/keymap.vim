@@ -50,6 +50,24 @@ nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
+" coc.nvim Code navigation in new split
+nmap <silent> gsd :<C-u>call CocActionAsync('jumpDefinition', 'split')<CR>
+nmap <silent> gsy :<C-u>call CocActionAsync('jumpTypeDefinition', 'split')<CR>
+nmap <silent> gsi :<C-u>call CocActionAsync('jumpImplementation', 'split')<CR>
+nmap <silent> gsr :<C-u>call CocActionAsync('jumpReferences', 'split')<CR>
+"
+" coc.nvim Code navigation in new vsplit
+nmap <silent> gvd :<C-u>call CocActionAsync('jumpDefinition', 'vsplit')<CR>
+nmap <silent> gvy :<C-u>call CocActionAsync('jumpTypeDefinition', 'vsplit')<CR>
+nmap <silent> gvi :<C-u>call CocActionAsync('jumpImplementation', 'vsplit')<CR>
+nmap <silent> gvr :<C-u>call CocActionAsync('jumpReferences', 'vsplit')<CR>
+"
+" coc.nvim Code navigation in new vsplit
+nmap <silent> gD :<C-u>call CocActionAsync('jumpDefinition', 'tabe')<CR>
+nmap <silent> gY :<C-u>call CocActionAsync('jumpTypeDefinition', 'tabe')<CR>
+nmap <silent> gI :<C-u>call CocActionAsync('jumpImplementation', 'tabe')<CR>
+nmap <silent> gR :<C-u>call CocActionAsync('jumpReferences', 'tabe')<CR>
+
 " Open URL
 command! -bar -nargs=1 OpenURL :!open <args>
 function! OpenURL()

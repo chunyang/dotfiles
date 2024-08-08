@@ -13,30 +13,37 @@
     rb = rebase
     rbc = rebase --continue
     st = status
+    sw = switch
     lu = ls-files --others
     lue = ls-files --others --exclude-standard
     gr = log --graph --full-history --all --color --pretty=format:"%x1b[31m%h%x09%x1b[32m%d%x1b[0m%x20%s"
+    conflicts = diff --name-only --diff-filter=U --relative
 [color]
     ui = true
 [core]
-    excludesfile = ~/.gitignore
-    editor = vim
     autocrlf = input
+    editor = vim
+    excludesfile = ~/.gitignore
     pager = less -XF --tabs=4
 [apply]
     whitespace = nowarn
+[init]
+    templatedir = ~/.git_template
+[filter "lfs"]
+    process = git-lfs filter-process
+    required = true
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
 [format]
     pretty = %C(yellow)%h%Creset %s %C(red)(%an, %cr)%Creset
 # [merge]
 #     renameLimit = 10000
 [push]
     default = simple
-[init]
-    templatedir = ~/.git_template
+[rebase]
+    autoSquash = true
+    updateRefs = true
+[rerere]
+    enabled = true
 [url "git@github.robot.car:"]
     insteadOf = https://github.robot.car/
-[filter "lfs"]
-    process = git-lfs filter-process
-    required = true
-    clean = git-lfs clean -- %f
-    smudge = git-lfs smudge -- %f

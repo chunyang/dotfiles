@@ -24,8 +24,7 @@ fi
 
 # Check if untracked files
 local u
-#if [[ -n $(git ls-files --exclude-standard --others 2>/dev/null) ]]; then
-if [[ -n $(git status --porcelain 2>/dev/null | grep "^??") ]]; then
+if git status --porcelain 2>/dev/null | grep -q "^??"; then
   u="+"
 else
   u=""
