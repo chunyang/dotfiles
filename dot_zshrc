@@ -6,4 +6,11 @@
 [ -f ~/.localrc ] && source ~/.localrc
 
 # FZF
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+fzf_version="$(fzf --version 2>/dev/null)"
+if [ -n "$fzf_version" ]; then
+    if [ "$(echo "${fzf_version// *}\n0.48.0" | sort -V | head -n1)" = "0.48.0" ]; then
+        source <(fzf --zsh)
+    else
+        echo "Unable to source zsh configuration because $(which fzf) version $fzf_version is less than 0.48.0" >&2
+    fi
+fi
