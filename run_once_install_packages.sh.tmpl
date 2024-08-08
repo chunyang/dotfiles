@@ -1,4 +1,5 @@
-{{ if eq .chezmoi.osRelease.id "ubuntu" -}}
+{{ if eq .chezmoi.os "darwin" -}}
+{{ else if eq .chezmoi.osRelease.id "ubuntu" -}}
 #!/bin/sh
 sudo apt install \
 {{ if eq .chezmoi.osRelease.versionID "18.10" -}}
