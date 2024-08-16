@@ -1,0 +1,50 @@
+# Prompt configuration
+
+# Prompt substitution
+setopt PROMPT_SUBST
+setopt PROMPT_PERCENT
+
+# Prompt appearance
+PS1='[%{$fg[cyan]%}%n@%m %~%{$reset_color%}]%(60l.
+.)%# '
+
+# RPS1 is set asynchronously.
+RPS1=''
+
+function compute_rps1() {
+    echo "$(git_info_for_prompt)"
+}
+
+ASYNC_PROC=0
+function async_compute_rps1() {
+    function async() {
+        # Compute prompt and save to temp file.
+        printf "%s" "$(compute_rps1)" > "${HOME}/.zsh_async_prompt"
+
+        # Signal parent.
+        kill -s USR2 $$
+    }
+
+    # Kill child if necessary.
+    if [[ "${ASYNC_PROC}" != 0 ]]; then
+        kill -s HUP $ASYNC_PROC >/dev/null 2>&1 || :
+    fi
+
+    # Start background computation.
+    async &!
+    ASYNC_PROC=$!
+}
+
+function TRAPUSR2() {
+    # Read from rprompt temp file.
+    RPROMPT="$(<"${HOME}/.zsh_async_prompt")"
+
+    # Reset child process number.
+    ASYNC_PROC=0
+
+    # Redisplay the prompt.
+    zle && zle reset-prompt
+}
+
+typeset -a precmd_functions
+precmd_functions+=(async_compute_rps1)

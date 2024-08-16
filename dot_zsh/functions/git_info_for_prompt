@@ -73,7 +73,7 @@ fi
 if [ -n "$1" ]; then
   printf "$1" "${b##refs/heads/}$r"
 elif [ $dirty -eq 0 ]; then
-  echo " %{$fg_bold[green]%}${b##refs/heads/}$r$u%{$reset_color%}"
+  echo "[%{$fg_bold[green]%}${b##refs/heads/}$r$u%{$reset_color%}]"
 else
-  echo " %{$fg_bold[red]%}${b##refs/heads/}$r$u%{$reset_color%}"
+  echo "[%{$fg_bold[red]%}${b##refs/heads/}$r$u%{$reset_color%}]"
 fi
